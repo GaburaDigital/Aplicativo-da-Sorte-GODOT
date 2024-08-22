@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d55w3uodnya8"]
+
+[ext_resource type="Script" path="res://CODIGOS/Barra_progresso.gd" id="1_80rrj"]
+
+[node name="Barra_progresso" type="Control"]
+layout_mode = 3
+anchor_right = 0.342
+anchor_bottom = 0.207
+offset_right = 0.0159912
+offset_bottom = -0.136017
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80rrj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 382.0
+offset_bottom = 124.0

@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcpkika5goona"]
+
+[ext_resource type="PackedScene" uid="uid://dkquur3xk04i6" path="res://CENAS/bot_menu.tscn" id="1_mp4ad"]
+[ext_resource type="Script" path="res://CODIGOS/tela_dado.gd" id="1_ylqkn"]
+[ext_resource type="PackedScene" uid="uid://d55w3uodnya8" path="res://CENAS/barra_progresso.tscn" id="2_nw2fe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_51j8i"]
+font_size = 100
+
+[node name="tela_dado" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ylqkn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1171.0
+offset_bottom = 658.0
+color = Color(0.345253, 0.342025, 0.354904, 1)
+
+[node name="Button_menos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 96.0
+offset_right = 457.0
+offset_bottom = 172.0
+text = "<<"
+
+[node name="Button_mais" type="Button" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 96.0
+offset_right = 681.0
+offset_bottom = 167.0
+text = ">>"
+
+[node name="Button_JOGAR" type="Button" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 217.0
+offset_right = 637.0
+offset_bottom = 329.0
+text = "JOGAR"
+
+[node name="Label_config" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 41.0
+offset_right = 614.0
+offset_bottom = 218.0
+text = "6"
+label_settings = SubResource("LabelSettings_51j8i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_result" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 476.0
+offset_right = 626.0
+offset_bottom = 653.0
+text = "..."
+label_settings = SubResource("LabelSettings_51j8i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bot_menu" parent="." instance=ExtResource("1_mp4ad")]
+layout_mode = 1
+offset_left = 1011.0
+offset_top = 18.0
+offset_right = -15.0
+offset_bottom = -504.0
+
+[node name="Barra_progresso" parent="." instance=ExtResource("2_nw2fe")]
+layout_mode = 1
+offset_left = 343.0
+offset_top = 358.0
+offset_right = 339.016
+offset_bottom = 357.864
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 26.0
+offset_right = 607.0
+offset_bottom = 88.0
+text = "nº de lados do DADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button_menos" to="." method="_on_button_menos_pressed"]
+[connection signal="pressed" from="Button_mais" to="." method="_on_button_mais_pressed"]
+[connection signal="pressed" from="Button_JOGAR" to="." method="_on_button_jogar_pressed"]

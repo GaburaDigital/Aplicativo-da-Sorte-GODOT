@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://clqe0qoawsb4e"]
+
+[ext_resource type="Texture2D" uid="uid://bxkmup4i4v17c" path="res://imagens/sorteIMAGEM.png" id="1_57tlf"]
+[ext_resource type="Script" path="res://CODIGOS/tela_inicial.gd" id="1_oyudi"]
+[ext_resource type="Texture2D" uid="uid://usq6m5eppld8" path="res://imagens/MOEDAicone.png" id="2_d6h23"]
+[ext_resource type="Texture2D" uid="uid://7k44wbtf3dpq" path="res://imagens/jokenpoICONE.png" id="3_jq5rq"]
+[ext_resource type="Texture2D" uid="uid://d64coj4jois5" path="res://imagens/MOEDAiconePRESS.png" id="3_o1esa"]
+[ext_resource type="Texture2D" uid="uid://gm2fjqbn337n" path="res://imagens/dadoICONE.png" id="4_44qrf"]
+[ext_resource type="Texture2D" uid="uid://cskgm0itosthj" path="res://imagens/MOEDAiconeSOB.png" id="4_in7ys"]
+[ext_resource type="Texture2D" uid="uid://3qrio31k5htw" path="res://imagens/jokenpoICONEpres.png" id="6_l7b1q"]
+[ext_resource type="Texture2D" uid="uid://bsm4te6n2kig5" path="res://imagens/jokenpoICONEsob2.png" id="7_25tst"]
+[ext_resource type="Texture2D" uid="uid://duhqq7fexm8yh" path="res://imagens/dadoICONEpress.png" id="9_gjb0q"]
+[ext_resource type="Texture2D" uid="uid://ge8l0ap6eofj" path="res://imagens/dadoICONEsobre.png" id="10_751e4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_42ckx"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_5msnv"]
+font_size = 36
+font_color = Color(0.729412, 0.741176, 0.729412, 1)
+outline_size = 17
+outline_color = Color(0.219608, 0, 0, 1)
+
+[node name="TELA_INICIAL" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = -3.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyudi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 656.0
+color = Color(0, 0, 0, 1)
+
+[node name="SorteImagem" type="Sprite2D" parent="."]
+position = Vector2(375, 162)
+scale = Vector2(1, 0.863309)
+texture = ExtResource("1_57tlf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 81.0
+offset_right = 882.0
+offset_bottom = 205.0
+text = "APP DA SORTE"
+label_settings = SubResource("LabelSettings_42ckx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelCREDITOS" type="Label" parent="."]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 575.0
+offset_right = 1135.0
+offset_bottom = 640.0
+text = "BY GABURA 2024"
+label_settings = SubResource("LabelSettings_5msnv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 320.0
+offset_right = 984.0
+offset_bottom = 549.0
+alignment = 1
+
+[node name="TextureButton_MOEDA" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_d6h23")
+texture_pressed = ExtResource("3_o1esa")
+texture_hover = ExtResource("4_in7ys")
+
+[node name="TextureButton_JOKENPO" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_jq5rq")
+texture_pressed = ExtResource("6_l7b1q")
+texture_hover = ExtResource("7_25tst")
+
+[node name="TextureButton_DADO" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_44qrf")
+texture_pressed = ExtResource("9_gjb0q")
+texture_hover = ExtResource("10_751e4")
+
+[connection signal="pressed" from="HBoxContainer/TextureButton_MOEDA" to="." method="_on_texture_button_moeda_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton_JOKENPO" to="." method="_on_texture_button_jokenpo_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton_DADO" to="." method="_on_texture_button_dado_pressed"]

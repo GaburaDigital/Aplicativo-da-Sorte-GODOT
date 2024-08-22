@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://e5twitmcjkjj"]
+
+[ext_resource type="Script" path="res://CODIGOS/tela_jokenpo.gd" id="1_h4c5w"]
+[ext_resource type="PackedScene" uid="uid://dkquur3xk04i6" path="res://CENAS/bot_menu.tscn" id="1_jxss7"]
+[ext_resource type="PackedScene" uid="uid://d55w3uodnya8" path="res://CENAS/barra_progresso.tscn" id="2_1nclg"]
+[ext_resource type="Texture2D" uid="uid://cw6w63nypwh7p" path="res://imagens/NADAresult.png" id="3_ixrjo"]
+
+[node name="tela_jokenpo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h4c5w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1165.0
+offset_bottom = 660.0
+color = Color(0.14902, 0.45098, 0.0392157, 1)
+
+[node name="bot_menu" parent="." instance=ExtResource("1_jxss7")]
+layout_mode = 1
+offset_left = 1022.0
+offset_top = 25.0
+offset_right = -4.0
+offset_bottom = -497.0
+
+[node name="Barra_progresso" parent="." instance=ExtResource("2_1nclg")]
+layout_mode = 1
+anchor_right = 1.024
+anchor_bottom = 1.042
+offset_left = 389.0
+offset_top = 245.0
+offset_right = -396.648
+offset_bottom = -296.216
+
+[node name="Button_JOGAR" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 48.0
+offset_right = 681.0
+offset_bottom = 219.0
+text = "Iniciar jogo"
+
+[node name="TextureRect_result" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 403.0
+offset_right = 696.0
+offset_bottom = 625.0
+texture = ExtResource("3_ixrjo")
+expand_mode = 1
+
+[connection signal="pressed" from="Button_JOGAR" to="." method="_on_button_jogar_pressed"]
